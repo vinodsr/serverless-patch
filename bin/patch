@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+console.log("\nPatch for Serverless - custom naming\n")
+let naming = null
+try {
+naming = require('../serverless/lib/plugins/aws/lib/naming.js')
+} catch (e) {
+    console.error('Please install serverless to the same scope as the patch.\n eg: npm install serverless -g')
+    process.exit(-1)
+}
+if (typeof process.env.AWS_NAME_PREFIX === 'undefined' || process.env.AWS_NAME_PREFIX == null || process.env.AWS_NAME_PREFIX.length == 0) {
+    console.log('Error : env variable "AWS_NAME_PREFIX" not set !')
+    process.exit(-1)
+}
+
+const customStackName = `${process.env.AWS_NAME_PREFIX}-CF`
+const customApiName = `${process.env.AWS_NAME_PREFIX}-API`
+console.log(`AWS_NAME_PREFIX = ${process.env.AWS_NAME_PREFIX}`)
+
+naming.getStackName = function () { return customStackName }
+naming.getApiGatewayName = function () { return customApiName }
+
+const stack = require("../serverless/lib/plugins/aws/remove/lib/stack.js")
+
+stack.remove = function () {
+    this.serverless.cli.log('Removing Stack...');
+    const stackName = customStackName
+    const params = { 
+        StackName: stackName, 
+    };
+    if (this.serverless.service.provider.cfnRole) {
+         params.RoleARN = this.serverless.service.provider.cfnRole; 
+    } 
+    const cfData = { 
+        StackId: stackName, 
+    }; 
+    return this.provider.request('CloudFormation', 
+                                'deleteStack', 
+                                params, 
+                                this.options.stage, 
+                                this.options.region).then(() => cfData);
+}
+require('../serverless/bin/serverless')       
