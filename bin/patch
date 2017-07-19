@@ -12,6 +12,8 @@ if (typeof process.env.AWS_NAME_PREFIX === 'undefined' || process.env.AWS_NAME_P
     process.exit(-1)
 }
 
+const keyForCF = process.env.AWS_CF_KEY || 'CF'
+const keyForAPI = process.env.AWS_API_KEY || 'API'
 const customStackName = `${process.env.AWS_NAME_PREFIX}-CF`
 const customApiName = `${process.env.AWS_NAME_PREFIX}-API`
 console.log(`AWS_NAME_PREFIX = ${process.env.AWS_NAME_PREFIX}`)

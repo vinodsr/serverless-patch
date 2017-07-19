@@ -15,6 +15,7 @@
     "patch",
     "custom"
   ],
+  "git" : "https://github.com/vinodsr/serverless-patch",
   "author": "Vinod Surendran",
   "license": "MIT"
 }
