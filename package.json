@@ -1,21 +1,21 @@
 {
   "name": "serverless-patch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Patch script which enables you to provide custom names to stack and api implementaion using the serverless framework.",
   "main": "bin/patch",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin" :{
-    "serverless-patch" : "bin/patch",
-    "spatch" : "bin/patch"
+  "bin": {
+    "serverless-patch": "bin/patch",
+    "spatch": "bin/patch"
   },
   "keywords": [
     "serverless",
     "patch",
     "custom"
   ],
-  "git" : "https://github.com/vinodsr/serverless-patch",
+  "git": "https://github.com/vinodsr/serverless-patch",
   "author": "Vinod Surendran",
   "license": "MIT"
 }
