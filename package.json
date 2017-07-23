@@ -1,6 +1,6 @@
 {
   "name": "serverless-patch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Patch script which enables you to provide custom names to stack and api implementaion using the serverless framework.",
   "main": "bin/patch",
   "scripts": {
