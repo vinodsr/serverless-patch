@@ -2,7 +2,7 @@
 console.log("\nPatch for Serverless - custom naming\n")
 let naming = null
 try {
-naming = require('../serverless/lib/plugins/aws/lib/naming.js')
+naming = require('../../serverless/lib/plugins/aws/lib/naming.js')
 } catch (e) {
     console.error('Please install serverless to the same scope as the patch.\n eg: npm install serverless -g')
     process.exit(-1)
