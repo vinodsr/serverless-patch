@@ -21,7 +21,7 @@ console.log(`AWS_NAME_PREFIX = ${process.env.AWS_NAME_PREFIX}`)
 naming.getStackName = function () { return customStackName }
 naming.getApiGatewayName = function () { return customApiName }
 
-const stack = require("../serverless/lib/plugins/aws/remove/lib/stack.js")
+const stack = require("../../serverless/lib/plugins/aws/remove/lib/stack.js")
 
 stack.remove = function () {
     this.serverless.cli.log('Removing Stack...');
@@ -41,4 +41,4 @@ stack.remove = function () {
                                 this.options.stage, 
                                 this.options.region).then(() => cfData);
 }
-require('../serverless/bin/serverless')       
+require('../../serverless/bin/serverless')       
