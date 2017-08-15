@@ -8,7 +8,7 @@ naming = require('../../serverless/lib/plugins/aws/lib/naming.js')
     process.exit(-1)
 }
 if (typeof process.env.AWS_NAME_PREFIX === 'undefined' || process.env.AWS_NAME_PREFIX == null || process.env.AWS_NAME_PREFIX.length == 0) {
-    console.log('Error : env variable "AWS_NAME_PREFIX" not set !')
+    console.log('Error : env variable "AWS_NAME_PREFIX" not set!')
     process.exit(-1)
 }
 
